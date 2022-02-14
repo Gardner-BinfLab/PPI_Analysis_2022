@@ -29,7 +29,7 @@ def valid_file(param):
 
 
 def check_arg(args=None):
-    parser = argparse.ArgumentParser(formatter_class=RawDescriptionHelpFormatter, description='Prediction of protein-protein interactions using a random forest classifier trained using AAindex. \n\nexamples:\n\tpython rf.py -a ../test/test_file1.fasta -p ../test/test_pairs.txt -c ../clf/final_clfs.pickle\n\tpython rf.py -a ../test/test_file1.fasta -b ../test/test_file2.fasta -p p -c ../clfs/final_clfs.pickle\n\tpython rf.py -a ../test/test_file1.fasta -p m -c ../clfs/final_clfs.pickle\n\tpython rf.py -a ../test/test_file1.fasta -p s -c ../clfs/final_clfs.pickle')
+    parser = argparse.ArgumentParser(formatter_class=RawDescriptionHelpFormatter, description='Prediction of protein-protein interactions using a random forest classifier trained using AAindex. \n\nexamples:\n\tpython rf.py -a ../test/test_file1.fasta -p ../test/test_pairs.txt -c ../clf/lazypair_clfs.pickle\n\tpython rf.py -a ../test/test_file1.fasta -b ../test/test_file2.fasta -p p -c ../clfs/lazypair_clfs.pickle\n\tpython rf.py -a ../test/test_file1.fasta -p m -c ../clfs/lazypair_clfs.pickle\n\tpython rf.py -a ../test/test_file1.fasta -p s -c ../clfs/lazypair_clfs.pickle')
     
     parser.add_argument('-a', '--seqfile1',
                         type=valid_file,
