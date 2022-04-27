@@ -101,10 +101,10 @@ def fasta_reader(file):
                                         expand=True)
     fasta_df['Accession'] = fasta_df['Accession'].str.split('\s').apply(lambda x: x[0])
     fasta_df['Sequence'] = fasta_df['Sequence'].replace('\n', '', regex=True).\
-                            astype(str).str.upper().replace('U', 'C')
+                            astype(str).str.upper().replace('U', 'C').str.replace('\r','')
     total_seq = fasta_df.shape[0]
     fasta_df.drop(0, axis=1, inplace=True)
-    fasta_df = fasta_df[(fasta_df.Sequence != '') & (fasta_df.Sequence != 'NONE') & fasta_df['Sequence'].str.isalpha()]
+    fasta_df = fasta_df[(fasta_df.Sequence != '') & (fasta_df.Sequence != 'NONE') & (fasta_df['Sequence'].str.isalpha())]
     fasta_df['Sequence_'] = fasta_df.Sequence.apply(lambda x: len(remove_unnatural(x)))
     fasta_df = fasta_df[fasta_df.Sequence_==1].drop('Sequence_', axis=1)
     fasta_df = fasta_df[(~fasta_df.Sequence.str.contains('X')) & (~fasta_df.Sequence.str.contains('Z'))]
