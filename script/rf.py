@@ -230,7 +230,6 @@ def main():
             ids = s1.Accession.tolist() 
         
             pools = Pool(t)
-            results = []
             pred = partial(predict, clfs, s1, False, ids)
             print(' '.join(columns))
 
