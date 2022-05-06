@@ -229,7 +229,7 @@ def main():
             s1['AAindex'] = list(aaind1)
             ids = s1.Accession.tolist() 
         
-            pools = Pool(4)
+            pools = Pool(t)
             results = []
             pred = partial(predict, clfs, s1, False, ids)
             print(' '.join(columns))
